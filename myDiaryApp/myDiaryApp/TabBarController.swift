@@ -52,7 +52,7 @@ final class TabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "list.bullet")
         )
         viewControllers = [calendarVC, listVC]
-        tabBar.tintColor = .systemPink
+        tabBar.tintColor = UIColor.myBackgroundColor
     }
     
 }

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+extension CGFloat{
+    static let defaultPadding:CGFloat = 20
+}
+
+extension UIColor{
+    static let myBackgroundColor:UIColor = .systemBlue
+}

@@ -9,15 +9,26 @@ import UIKit
 
 class CalendarViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    static let identifier = "CalendarViewCell"
+    
+    lazy var cellView = UIView()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUp()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func setUp(){
+        self.addSubview(cellView)
+        cellView.backgroundColor = .blue
+        cellView.snp.makeConstraints{ make in
+            make.width.height.equalTo(100)
+            make.left.equalTo(self.snp.left)
+            make.centerY.equalTo(self.snp.centerY)
+        }
     }
 
 }
