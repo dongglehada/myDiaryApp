@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083C05A52AA0753E00516FA2 /* AddMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */; };
+		083C05A72AA076BE00516FA2 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05A62AA076BE00516FA2 /* DateManager.swift */; };
 		088C0D242A9F28CB00450701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D232A9F28CB00450701 /* AppDelegate.swift */; };
 		088C0D262A9F28CB00450701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D252A9F28CB00450701 /* SceneDelegate.swift */; };
 		088C0D282A9F28CB00450701 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D272A9F28CB00450701 /* CalendarViewController.swift */; };
@@ -17,9 +19,13 @@
 		088C0D3D2A9F62B500450701 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D3C2A9F62B500450701 /* ListViewController.swift */; };
 		08D404EC2A9F7C2B0059A6B3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D404EB2A9F7C2B0059A6B3 /* Extension.swift */; };
 		08D404EE2A9F866A0059A6B3 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D404ED2A9F866A0059A6B3 /* CalendarViewCell.swift */; };
+		08D404F02A9FA1200059A6B3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D404EF2A9FA1200059A6B3 /* Models.swift */; };
+		08D404F22A9FA5410059A6B3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D404F12A9FA5410059A6B3 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoViewController.swift; sourceTree = "<group>"; };
+		083C05A62AA076BE00516FA2 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		088C0D202A9F28CB00450701 /* myDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088C0D232A9F28CB00450701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088C0D252A9F28CB00450701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +37,8 @@
 		088C0D3C2A9F62B500450701 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		08D404EB2A9F7C2B0059A6B3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		08D404ED2A9F866A0059A6B3 /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		08D404EF2A9FA1200059A6B3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		08D404F12A9FA5410059A6B3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083C05A12AA02C8900516FA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				088C0D272A9F28CB00450701 /* CalendarViewController.swift */,
+				083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */,
+				088C0D372A9F29ED00450701 /* TabBarController.swift */,
+				088C0D3C2A9F62B500450701 /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		083C05A22AA02CA000516FA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08D404ED2A9F866A0059A6B3 /* CalendarViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		083C05A32AA02CB100516FA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				08D404F12A9FA5410059A6B3 /* DataManager.swift */,
+				083C05A62AA076BE00516FA2 /* DateManager.swift */,
+				08D404EF2A9FA1200059A6B3 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		088C0D172A9F28CB00450701 = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +103,10 @@
 			children = (
 				088C0D232A9F28CB00450701 /* AppDelegate.swift */,
 				088C0D252A9F28CB00450701 /* SceneDelegate.swift */,
-				088C0D372A9F29ED00450701 /* TabBarController.swift */,
-				088C0D272A9F28CB00450701 /* CalendarViewController.swift */,
-				08D404ED2A9F866A0059A6B3 /* CalendarViewCell.swift */,
 				08D404EB2A9F7C2B0059A6B3 /* Extension.swift */,
-				088C0D3C2A9F62B500450701 /* ListViewController.swift */,
+				083C05A22AA02CA000516FA2 /* Views */,
+				083C05A12AA02C8900516FA2 /* Controllers */,
+				083C05A32AA02CB100516FA2 /* Models */,
 				088C0D2C2A9F28CC00450701 /* Assets.xcassets */,
 				088C0D2E2A9F28CC00450701 /* LaunchScreen.storyboard */,
 				088C0D312A9F28CC00450701 /* Info.plist */,
@@ -157,9 +193,13 @@
 				088C0D282A9F28CB00450701 /* CalendarViewController.swift in Sources */,
 				088C0D382A9F29ED00450701 /* TabBarController.swift in Sources */,
 				088C0D242A9F28CB00450701 /* AppDelegate.swift in Sources */,
+				08D404F02A9FA1200059A6B3 /* Models.swift in Sources */,
 				08D404EC2A9F7C2B0059A6B3 /* Extension.swift in Sources */,
 				08D404EE2A9F866A0059A6B3 /* CalendarViewCell.swift in Sources */,
+				083C05A52AA0753E00516FA2 /* AddMemoViewController.swift in Sources */,
+				083C05A72AA076BE00516FA2 /* DateManager.swift in Sources */,
 				088C0D3D2A9F62B500450701 /* ListViewController.swift in Sources */,
+				08D404F22A9FA5410059A6B3 /* DataManager.swift in Sources */,
 				088C0D262A9F28CB00450701 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

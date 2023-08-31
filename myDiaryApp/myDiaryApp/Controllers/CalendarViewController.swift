@@ -8,23 +8,24 @@
 import UIKit
 import SnapKit
 
-class CalendarViewController: UIViewController {
+final class CalendarViewController: UIViewController {
     
     private var dataManager = DataManager.shared
-
-    private let mytableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
-//    private let mytableView = UITableView()
-    
+    private var filterData:[MemoData] = []
+    private let mytableView = UITableView()
     private let calendarView = UICalendarView()
+    private let addButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        
     }
 
     private func setUp(){
         setUpTableView()
         setUpCalenderView()
+        setUpAddButton()
     }
 
     private func setUpTableView(){
@@ -33,6 +34,7 @@ class CalendarViewController: UIViewController {
         mytableView.delegate = self
         mytableView.dataSource = self
         mytableView.backgroundColor = .systemBackground
+        
         mytableView.snp.makeConstraints{ make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
@@ -51,13 +53,29 @@ class CalendarViewController: UIViewController {
         }
         mytableView.tableHeaderView = contentView
     }
+    
+    private func setUpAddButton(){
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.tintColor = UIColor.myPointColor
+        addButton.addTarget(self, action: #selector(addButtonTapped(_:)), for: .touchUpInside)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: addButton)]
+    }
 
+    @objc func addButtonTapped(_ sender:UIButton){
+        print(#function)
+        let addPageVC = AddMemoViewController()
+        navigationController?.pushViewController(addPageVC, animated: true)
+    }
 }
 
 extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSingleDateDelegate{
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         guard let date = dateComponents else { return }
-        print(date)
+        guard let year = date.year else { return }
+        guard let month = date.month else { return }
+        guard let day = date.day else { return }
+        filterData = dataManager.memoData.filter{$0.year == year && $0.month == month && $0.day == day}
+        mytableView.reloadData()
     }
     
     
@@ -65,14 +83,16 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return filterData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarViewCell",for: indexPath) as? CalendarViewCell else { return UITableViewCell() }
+        cell.bind(data: filterData[indexPath.row])
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 50
     }
 }

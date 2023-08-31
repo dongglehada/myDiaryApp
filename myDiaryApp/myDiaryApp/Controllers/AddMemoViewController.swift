@@ -6,24 +6,29 @@
 //
 
 import UIKit
+import SnapKit
 
-class AddMemoViewController: UIViewController {
+final class AddMemoViewController: UIViewController {
 
+    private let tagLabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
+    }
 
-        // Do any additional setup after loading the view.
+    private func setUp(){
+        view.backgroundColor = UIColor.systemBackground
+        navigationController?.navigationBar.tintColor = .myPointColor
+        setUpTagLabel()
+//        print(TagColor.getColorsAry)
+    }
+    private func setUpTagLabel(){
+        view.addSubview(tagLabel)
+        tagLabel.text = "gd"
+        tagLabel.snp.makeConstraints{ make in
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

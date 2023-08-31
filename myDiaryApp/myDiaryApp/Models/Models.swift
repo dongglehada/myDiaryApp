@@ -10,14 +10,15 @@ import UIKit
 
 
 struct MemoData{
-    var year:String
-    var month:String
-    var day:String
+    var year:Int
+    var month:Int
+    var day:Int
     var context:String
     var tagColor:TagColor
+    var id:Int
 }
 
-enum TagColor{
+enum TagColor: CaseIterable{
     case red
     case orange
     case yellow
@@ -43,5 +44,8 @@ enum TagColor{
         case .purple:
             return UIColor.systemPurple
         }
+    }
+    static var getColorsAry: [UIColor]{
+        return TagColor.allCases.map{$0.getColor}
     }
 }
