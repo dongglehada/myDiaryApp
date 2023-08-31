@@ -9,14 +9,16 @@ import UIKit
 import SnapKit
 
 class CalendarViewController: UIViewController {
+    
+    private var dataManager = DataManager.shared
 
     private let mytableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+//    private let mytableView = UITableView()
     
     private let calendarView = UICalendarView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.myBackgroundColor
         setUp()
     }
 
@@ -30,27 +32,22 @@ class CalendarViewController: UIViewController {
         mytableView.register(CalendarViewCell.self, forCellReuseIdentifier: CalendarViewCell.identifier)
         mytableView.delegate = self
         mytableView.dataSource = self
-        mytableView.backgroundColor = UIColor.myBackgroundColor
+        mytableView.backgroundColor = .systemBackground
         mytableView.snp.makeConstraints{ make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     private func setUpCalenderView(){
-        let contentView = UIView(frame:(CGRect(x: 0, y: 0, width: view.frame.size.width, height: 450)))
+        let contentView = UIView(frame:(CGRect(x: 0, y: 0, width: view.frame.size.width, height: 400)))
         contentView.addSubview(calendarView)
-        contentView.backgroundColor = UIColor.myBackgroundColor
         calendarView.delegate = self
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
+        calendarView.tintColor = UIColor.myPointColor
         calendarView.backgroundColor = .systemBackground
-        calendarView.layer.cornerRadius = 12
-        calendarView.tintColor = UIColor.myBackgroundColor
         calendarView.snp.makeConstraints{ make in
-            make.top.equalTo(contentView)
-            make.left.equalTo(contentView).offset(CGFloat.defaultPadding)
-            make.right.equalTo(contentView).offset(-CGFloat.defaultPadding)
-            make.bottom.equalTo(contentView).offset(-CGFloat.defaultPadding)
+            make.edges.equalTo(contentView)
         }
         mytableView.tableHeaderView = contentView
     }
@@ -76,6 +73,6 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        return 40
     }
 }

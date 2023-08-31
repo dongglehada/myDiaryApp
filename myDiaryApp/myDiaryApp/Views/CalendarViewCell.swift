@@ -24,8 +24,9 @@ class CalendarViewCell: UITableViewCell {
     func setUp(){
         self.addSubview(cellView)
         cellView.backgroundColor = .blue
+        cellView.layer.cornerRadius = 5
         cellView.snp.makeConstraints{ make in
-            make.width.height.equalTo(100)
+            make.width.height.equalTo(10)
             make.left.equalTo(self.snp.left)
             make.centerY.equalTo(self.snp.centerY)
         }
