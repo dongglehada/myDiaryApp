@@ -58,9 +58,9 @@
 		083C05A12AA02C8900516FA2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				088C0D372A9F29ED00450701 /* TabBarController.swift */,
 				088C0D272A9F28CB00450701 /* CalendarViewController.swift */,
 				083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */,
-				088C0D372A9F29ED00450701 /* TabBarController.swift */,
 				088C0D3C2A9F62B500450701 /* ListViewController.swift */,
 				083C05AB2AA0DB8300516FA2 /* DetailViewController.swift */,
 			);

@@ -13,14 +13,6 @@ final class AddMemoViewController: UIViewController {
     private let tagButton = UIButton()
     private let doneButton = UIButton()
     private let textView = UITextView()
-    
-    private var dataManager = DataManager.shared
-    private let colorAry = TagColor.allCases
-    private var year = 0
-    private var month = 0
-    private var day = 0
-    private var myTag:TagColor = .red
-    
     private let myCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -33,6 +25,13 @@ final class AddMemoViewController: UIViewController {
         return collectionView
     }()
     
+    private var dataManager = DataManager.shared
+    private let colorAry = TagColor.allCases
+    private var year = 0
+    private var month = 0
+    private var day = 0
+    private var myTag:TagColor = .red
+    private let defalutText = "택스트를 입력해주세요."
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -78,7 +77,7 @@ final class AddMemoViewController: UIViewController {
         textView.delegate = self
         textView.font = UIFont.systemFont(ofSize: 17)
         textView.showsVerticalScrollIndicator = false
-        textView.text = "택스트를 입력해주세요."
+        textView.text = defalutText
         textView.textColor = UIColor.systemGray4
         textView.snp.makeConstraints { make in
             make.top.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -126,7 +125,9 @@ final class AddMemoViewController: UIViewController {
     @objc func doneButtonTapped(_ sender:UIButton){
         print(#function)
         guard let text = textView.text else { return }
-        dataManager.memoData.append(MemoData(year: year, month: month, day: day, context: text, tagColor: myTag, id: dataManager.getID))
+        if text != defalutText && text != ""{
+            dataManager.memoData.append(MemoData(year: year, month: month, day: day, context: text, tagColor: myTag, id: dataManager.getID))
+        }
         navigationController?.popViewController(animated: true)
     }
     
@@ -205,11 +206,11 @@ extension AddMemoViewController: UITextViewDelegate{
     
     //TextViewDidChange
     func textViewDidChange(_ textView: UITextView) {
-        
+
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == "택스트를 입력해주세요." {
+        if textView.text == defalutText {
             textView.textColor = .black
             textView.text = ""
         }
