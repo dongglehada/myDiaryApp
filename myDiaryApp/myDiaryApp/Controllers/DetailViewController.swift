@@ -30,7 +30,7 @@ final class DetailViewController: UIViewController {
     private var index = 0
     
     // MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -44,7 +44,7 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: - SetUp
-
+    
     private func setUp(){
         view.backgroundColor = .systemBackground
         setUpTextView()
@@ -100,31 +100,38 @@ final class DetailViewController: UIViewController {
             make.height.equalTo(50)
         }
     }
+    // MARK: - ButtonTapped
+    
+    @objc func tagButtonTapped(_ sender:UIButton){
+        collectionViewHidden(toggle:myCollectionView.isHidden)
+    }
+    
+    @objc func doneButtonTapped(_ sender:UIButton){
+        print(#function)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func deleteButtonTapped(_ sender:UIButton){
+        print(#function)
+        let alret = UIAlertController(title: "삭제", message: "메모를 삭제하시겠습니까?", preferredStyle: .alert)
+        let no = UIAlertAction(title: "No", style: .default, handler: nil)
+        let yes = UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+            self.dataManager.memoData.remove(at: self.index)
+        })
+        alret.addAction(no)
+        alret.addAction(yes)
+        present(alret, animated: true, completion: nil)
+    }
+    
+    // MARK: - 메서드
+
+    
     public func bind(data:MemoData){
         textView.text = data.context
         guard let index = dataManager.memoData.map({$0.id}).firstIndex(of: data.id) else { return }
         self.index = index
         tagButton.backgroundColor = data.tagColor.getColor
-    }
-    @objc func tagButtonTapped(_ sender:UIButton){
-        print(#function)
-        collectionViewHidden(toggle:myCollectionView.isHidden)
-    }
-    @objc func doneButtonTapped(_ sender:UIButton){
-        print(#function)
-        navigationController?.popViewController(animated: true)
-    }
-    @objc func deleteButtonTapped(_ sender:UIButton){
-        print(#function)
-        let alret = UIAlertController(title: "삭제", message: "메모를 삭제하시겠습니까?", preferredStyle: .alert)
-          let yes = UIAlertAction(title: "No", style: .default, handler: nil)
-          let no = UIAlertAction(title: "Yes", style: .destructive, handler: nil)
-        
-            alret.addAction(yes)
-          alret.addAction(no)
-          
-
-          present(alret, animated: true, completion: nil)
     }
     
     private func collectionViewHidden(toggle:Bool){
@@ -138,7 +145,7 @@ final class DetailViewController: UIViewController {
         myCollectionView.isHidden.toggle()
     }
     // MARK: - 키보드 대응
-
+    
     private func setUpKeyBoard(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -171,7 +178,7 @@ final class DetailViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-
+    
 }
 
 
