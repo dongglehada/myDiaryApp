@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		083C05A52AA0753E00516FA2 /* AddMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */; };
-		083C05A72AA076BE00516FA2 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05A62AA076BE00516FA2 /* DateManager.swift */; };
 		083C05A92AA086CE00516FA2 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05A82AA086CE00516FA2 /* TagCollectionViewCell.swift */; };
+		083C05AC2AA0DB8300516FA2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C05AB2AA0DB8300516FA2 /* DetailViewController.swift */; };
 		088C0D242A9F28CB00450701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D232A9F28CB00450701 /* AppDelegate.swift */; };
 		088C0D262A9F28CB00450701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D252A9F28CB00450701 /* SceneDelegate.swift */; };
 		088C0D282A9F28CB00450701 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C0D272A9F28CB00450701 /* CalendarViewController.swift */; };
@@ -26,8 +26,8 @@
 
 /* Begin PBXFileReference section */
 		083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoViewController.swift; sourceTree = "<group>"; };
-		083C05A62AA076BE00516FA2 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		083C05A82AA086CE00516FA2 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		083C05AB2AA0DB8300516FA2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		088C0D202A9F28CB00450701 /* myDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088C0D232A9F28CB00450701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088C0D252A9F28CB00450701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +62,7 @@
 				083C05A42AA0753E00516FA2 /* AddMemoViewController.swift */,
 				088C0D372A9F29ED00450701 /* TabBarController.swift */,
 				088C0D3C2A9F62B500450701 /* ListViewController.swift */,
+				083C05AB2AA0DB8300516FA2 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -86,7 +87,6 @@
 		083C05AA2AA0A0EA00516FA2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				083C05A62AA076BE00516FA2 /* DateManager.swift */,
 				08D404F12A9FA5410059A6B3 /* DataManager.swift */,
 			);
 			path = Managers;
@@ -204,11 +204,11 @@
 				088C0D282A9F28CB00450701 /* CalendarViewController.swift in Sources */,
 				088C0D382A9F29ED00450701 /* TabBarController.swift in Sources */,
 				088C0D242A9F28CB00450701 /* AppDelegate.swift in Sources */,
+				083C05AC2AA0DB8300516FA2 /* DetailViewController.swift in Sources */,
 				08D404F02A9FA1200059A6B3 /* Models.swift in Sources */,
 				08D404EC2A9F7C2B0059A6B3 /* Extension.swift in Sources */,
 				08D404EE2A9F866A0059A6B3 /* CalendarViewCell.swift in Sources */,
 				083C05A52AA0753E00516FA2 /* AddMemoViewController.swift in Sources */,
-				083C05A72AA076BE00516FA2 /* DateManager.swift in Sources */,
 				088C0D3D2A9F62B500450701 /* ListViewController.swift in Sources */,
 				083C05A92AA086CE00516FA2 /* TagCollectionViewCell.swift in Sources */,
 				08D404F22A9FA5410059A6B3 /* DataManager.swift in Sources */,

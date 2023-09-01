@@ -18,9 +18,7 @@ class DataManager{
         return count
     }
     
-    public var memoData:[MemoData] = [
-        MemoData(year: 2023, month: 8, day: 31, context: "red", tagColor: .red, id: 0),
-    ]
+    public var memoData:[MemoData] = []
     
     private init(){
         

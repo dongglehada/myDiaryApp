@@ -31,10 +31,10 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     private func setUp(){
         self.addSubview(tagView)
-        tagView.layer.cornerRadius = 15
+        tagView.layer.cornerRadius = 25
         tagView.snp.makeConstraints{ make in
             make.center.equalToSuperview()
-            make.width.height.equalTo(30)
+            make.width.height.equalTo(50)
         }
     }
     

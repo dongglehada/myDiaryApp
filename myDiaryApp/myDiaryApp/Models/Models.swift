@@ -45,7 +45,5 @@ enum TagColor: CaseIterable{
             return UIColor.systemPurple
         }
     }
-    static var getColorsAry: [UIColor]{
-        return TagColor.allCases.map{$0.getColor}
-    }
+
 }

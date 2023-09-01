@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import SnapKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
+    
+    private let textView = UITextView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUp()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
-    */
+    
+    private func setUp(){
+        view.backgroundColor = .systemBackground
+        setUpTextView()
+    }
+    
+    private func setUpTextView(){
+        view.addSubview(textView)
+        textView.font = UIFont.systemFont(ofSize: 17)
+        textView.showsVerticalScrollIndicator = false
+        textView.scrollsToTop = true
+        textView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(CGFloat.defaultPadding)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-CGFloat.defaultPadding)
+        }
+    }
+    public func bind(data:MemoData){
+        textView.text = data.context
+    }
 
 }
