@@ -19,6 +19,7 @@ struct MemoData{
 }
 
 enum TagColor: CaseIterable{
+    
     case red
     case orange
     case yellow
@@ -46,4 +47,5 @@ enum TagColor: CaseIterable{
         }
     }
 
+    static let colorArys = TagColor.allCases
 }
